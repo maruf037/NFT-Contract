@@ -2,7 +2,7 @@
 
 This is my iteration of NFT Contract from HashLips repo. You can find the original repo here.
 
-Original repo. (https://github.com/HashLips/hashlips_nft_contract.git)
+Original repo: https://github.com/HashLips/hashlips_nft_contract.git
 
 
 This repo provides a simple NFT smart contract.
