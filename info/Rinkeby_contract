@@ -1233,23 +1233,24 @@ abstract contract Ownable is Context {
 // This is our contract for NFTs
 pragma solidity >=0.7.0 <0.9.0;
 
-contract NFT is ERC721Enumerable, Ownable {
+contract RedEye is ERC721Enumerable, Ownable {
   using Strings for uint256;
 
   string baseURI;
   string public baseExtension = ".json";
-  uint256 public cost = 0.05 ether;
-  uint256 public maxSupply = 10000;
-  uint256 public maxMintAmount = 20;
-  bool public paused = false;
-  bool public revealed = false;
+  uint256 public cost = 0.02 ether;// This is the cost for minting an NFT.
+  uint256 public maxSupply = 10;// The total number of NFTs created.
+  uint256 public maxMintAmount = 1;// The maximum amount a person can mint per session or instance.
+  bool public paused = false;// This determines whether the contract is paused or not. If paused not the owner nor the user can mint NFTs. But the minted NFTs can be used. Its good practice to start the contract with paused to true, because you can start the minting function at launch date.
+  bool public revealed = false;// This should be false at first to reveal the hidden image after the NFTs are sold out.
   string public notRevealedUri;
 
+// Remember to copy the bytecode before clicking 'transact' button.
   constructor(
     string memory _name,
     string memory _symbol,
-    string memory _initBaseURI,
-    string memory _initNotRevealedUri
+    string memory _initBaseURI,// The format is like this "ipfs://CID/". Remember to use '/' after the link. Its very important. Only copy the CID here.
+    string memory _initNotRevealedUri// Remember to use the total link to the end of .json.
   ) ERC721(_name, _symbol) {
     setBaseURI(_initBaseURI);
     setNotRevealedURI(_initNotRevealedUri);
